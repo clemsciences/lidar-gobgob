@@ -216,6 +216,7 @@ class RPLidar(object):
         descriptor = self._serial.read(DESCRIPTOR_LEN)
         self.logger.debug('Received descriptor: %s', _showhex(descriptor))
         if len(descriptor) != DESCRIPTOR_LEN:
+            # print(len(descriptor))
             raise RPLidarException('Descriptor length mismatch')
         elif not descriptor.startswith(SYNC_BYTE + SYNC_BYTE2):
             raise RPLidarException('Incorrect descriptor starting bytes')
@@ -281,7 +282,9 @@ class RPLidar(object):
                     'Run clean_input() to emptied the buffer.')
         self.logger.info('Asking for health')
         self._send_cmd(GET_HEALTH_BYTE)
+        # print(GET_HEALTH_BYTE)
         dsize, is_single, dtype = self._read_descriptor()
+        # print(dsize, is_single, dtype)
         if dsize != HEALTH_LEN:
             raise RPLidarException('Wrong get_info reply length')
         if not is_single:

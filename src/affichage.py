@@ -4,7 +4,7 @@ import configparser
 from math import pi, cos, sin
 import logging.config
 
-import pylab as pl
+import matplotlib.pylab as pl
 
 _loggerAffichage = logging.getLogger("affichage")
 

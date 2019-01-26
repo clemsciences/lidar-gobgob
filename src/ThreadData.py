@@ -23,7 +23,8 @@ class ThreadData(Thread):
         _loggerRoot.info("Lancement thread de recuperation des donnees.")
         Thread.__init__(self)
         try:
-            self.lidar = Rp(comports()[0].device)  # Tente de se connecter au premier port Serie disponible
+            print(comports()[0].device)
+            self.lidar = Rp(comports()[0].device, baudrate=config["GENERAL"]["baudrate"])  # Tente de se connecter au premier port Serie disponible
         except IndexError:
             _loggerRoot.error("Pas de connexion serie disponible.")
             exit()
