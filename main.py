@@ -56,9 +56,11 @@ try:
     # Initialisation des valeurs pour le calcul du temps d'exécution
     t = time()
     te = t
+    ti = time()
 
     # Boucle de récupération,de traitement des données, d'envoi et d'affichage
     while True:
+        # sleep(1)
         # Aucun interet à spammer, on a moins de chance de bloquer l'execution du thread temporairement
 
         # Calcul du temps d'exécution : aussi utilisé pour le Kalman
@@ -86,6 +88,8 @@ try:
                 affichage_polaire(limits, ax, list_obstacles, dico, fig)
             else:
                 affichage_cartesien(limits, ax, list_obstacles, dico, fig)
+        # if time() - ti > 25:
+        #     break
 
 except KeyboardInterrupt:
     # Arrêt du système
@@ -106,4 +110,3 @@ finally:
         thread_data.join()
         thread_data = None
     data_file.close()
-

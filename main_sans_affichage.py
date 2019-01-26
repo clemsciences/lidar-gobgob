@@ -12,6 +12,8 @@ from src.HL_connection import stop_com_hl
 from src.ThreadData import ThreadData
 from src.mesures import mesures
 
+from time import time
+
 if not isdir("./Logs/"):
     mkdir("./Logs/")
 
