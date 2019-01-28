@@ -1,4 +1,4 @@
-# LiDAR
+# LIDAR for GOBGOB
 Code of data treatment for the 2019 France robotics cup.
 
 # Installation
