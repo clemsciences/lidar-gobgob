@@ -1,5 +1,5 @@
 # LiDAR
-Code of data treatment of the Hermes-LiDAR project.
+Code of data treatment for the 2019 France robotics cup.
 
 # Installation
 
@@ -29,3 +29,4 @@ scientific display mode in order to see our display.
 - [x] Logging
 - [ ] Solve "Cleaning buffer..." issue with rplidar
 - [ ] Cleaner shutdown(Tk, thread, serial errors when stopping)
+- [ ] Locate precisely the position of our robot
