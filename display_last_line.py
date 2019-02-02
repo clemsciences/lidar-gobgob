@@ -3,7 +3,7 @@
 import sys
 from csv import reader
 from os.path import isdir
-from src.affichage import affichage, affichage_brut_cartesien, init_affichage_brut_cartesien
+from src.affichage import affichage, affichage_brut_cartesien_une_image, init_affichage_brut_cartesien
 
 if not isdir("./Logs/"):
     print("No measure to read")
@@ -32,6 +32,6 @@ dico = {float(m.split(":")[0]): float(m.split(":")[0]) for measure in measures f
 
 # Affichage des points
 if affichage:
-    affichage_brut_cartesien(ax, dico, fig)
+    affichage_brut_cartesien_une_image(ax, dico, fig)
 else:
     print(dico)
