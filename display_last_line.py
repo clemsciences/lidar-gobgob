@@ -14,7 +14,6 @@ with open("Logs/RawData.logs", "r") as f:
     data_reader = reader(f, delimiter=" ")
     line = ""
     for line in data_reader:
-        print("o")
         pass
 
 if not line:
@@ -31,7 +30,8 @@ if affichage:
         ax, fig = init_affichage_polaire()
     else:
         ax, fig = init_affichage_cartesien()
-
+print(line[:10])
+ 
 dico = {angle: distance for measure in line[1:] for angle, distance in measure.split(":")}
 # Affichage des points
 if affichage:
