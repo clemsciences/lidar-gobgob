@@ -31,8 +31,9 @@ if affichage:
     else:
         ax, fig = init_affichage_cartesien()
 print(line[:10])
- 
-dico = {angle: distance for measure in line[1:] for angle, distance in measure.split(":")}
+measures = [measure for measure in line[1:] if measure]
+dico = {angle: distance for measure in measures for angle, distance in measure.split(":")}
+
 # Affichage des points
 if affichage:
     affichage_brut_cartesien(ax, dico, fig)
