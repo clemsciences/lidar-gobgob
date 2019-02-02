@@ -43,3 +43,9 @@ def mesures(te, list_obstacles_precedente, thread_data):
                                                                te, list_obstacles_precedente)
 
     return dico, limits, list_obstacles, list_obstacles_precedente
+
+
+def mesures_bruts(thread_data):
+    lidar_data = thread_data.readyData.get()
+    dico = data_cleaner(lidar_data, resolution_degre)
+    return dico

@@ -52,14 +52,7 @@ def init_affichage_polaire():
     return ax, fig
 
 
-def affichage_brut_cartesien(ax, dico, fig, points):
-
-    # Liste des points détectés aux extrémités d'un obstacle
-    list_detected = []
-    for detected in points:
-        for n in range(len(detected)):
-            list_detected.append(detected[n])
-
+def affichage_brut_cartesien(ax, dico, fig):
     # Mise en place du graphe
     ax.clear()
     ax.set_xlim(-distance_max_x_cartesien / 2, distance_max_x_cartesien / 2)
@@ -68,15 +61,10 @@ def affichage_brut_cartesien(ax, dico, fig, points):
     ax.axvline(0, 0)
     pl.grid()
 
-    # Listes des positions des obstacles à afficher
-    detected_x = [dico[detected] * cos(detected) for detected in list_detected]
-    detected_y = [-dico[detected] * sin(detected) for detected in list_detected]  # Attention: -y
-
     # Listes des positions des points à afficher
     x = [distance * cos(angle) for distance, angle in zip(dico.values(), dico.keys())]
     y = [-distance * sin(angle) for distance, angle in zip(dico.values(), dico.keys())]  # Attention: -y
 
-    pl.plot(detected_x, detected_y, 'bo', markersize=1.8)
     pl.plot(x, y, 'ro', markersize=0.6)
 
     # Affichage
