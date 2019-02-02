@@ -101,6 +101,7 @@ except KeyboardInterrupt:
         thread_data.stop_lidar()
         thread_data.join()
         thread_data = None
+    data_file.close()
 
 finally:
     # Arrêt du système
@@ -110,4 +111,4 @@ finally:
         thread_data.stop_lidar()
         thread_data.join()
         thread_data = None
-    data_file.close()
+    # data_file.close()
