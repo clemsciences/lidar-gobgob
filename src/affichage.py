@@ -52,6 +52,25 @@ def init_affichage_polaire():
     return ax, fig
 
 
+def affichage_brut_cartesien(ax, dico, fig):
+    # Mise en place du graphe
+    ax.clear()
+    ax.set_xlim(-distance_max_x_cartesien / 2, distance_max_x_cartesien / 2)
+    ax.set_ylim(-distance_max_y_cartesien / 2, distance_max_y_cartesien / 2)
+    ax.axhline(0, 0)
+    ax.axvline(0, 0)
+    pl.grid()
+
+    # Listes des positions des points à afficher
+    x = [distance * cos(angle) for distance, angle in zip(dico.values(), dico.keys())]
+    y = [-distance * sin(angle) for distance, angle in zip(dico.values(), dico.keys())]  # Attention: -y
+
+    pl.plot(x, y, 'ro', markersize=0.6)
+
+    # Affichage
+    fig.canvas.draw()
+
+
 def affichage_cartesien(limits, ax, list_obstacles, dico, fig):
     """
         Affichage.

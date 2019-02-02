@@ -10,7 +10,7 @@ from src.HL_connection import hl_socket
 from src.HL_connection import stop_com_hl
 from src.ThreadData import ThreadData
 from src.affichage import afficher_en_polaire, affichage, affichage_cartesien, affichage_polaire, \
-    init_affichage_cartesien, init_affichage_polaire
+    init_affichage_cartesien, init_affichage_polaire, affichage_brut_cartesien
 from src.mesures import mesures
 
 if not isdir("./Logs/"):
@@ -84,10 +84,11 @@ try:
         thread_data.lidar.clean_input()
         # Affichage des obstacles, de la position Kalman, et des points détectés dans chaque obstacle
         if affichage:
-            if afficher_en_polaire:
-                affichage_polaire(limits, ax, list_obstacles, dico, fig)
-            else:
-                affichage_cartesien(limits, ax, list_obstacles, dico, fig)
+            affichage_brut_cartesien(ax, dico, fig)
+            # if afficher_en_polaire:
+            #     affichage_polaire(limits, ax, list_obstacles, dico, fig)
+            # else:
+            #     affichage_cartesien(limits, ax, list_obstacles, dico, fig)
         # if time() - ti > 25:
         #     break
 
