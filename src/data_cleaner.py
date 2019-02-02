@@ -6,7 +6,7 @@ from math import pi
 
 def data_cleaner(lidar_data, resolution_degre):
     """
-    Fichier avec la fonction qui génère les données. Le Lidar doit être instancié dans le main
+    Fichier avec la fonction qui génère les données. Le Lidar doit être instencié dans le main
 
     :param lidar_data: données brutes du LiDAR
     :param resolution_degre: La résolution utilisée en DEGRES
