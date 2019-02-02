@@ -30,9 +30,10 @@ if affichage:
         ax, fig = init_affichage_polaire()
     else:
         ax, fig = init_affichage_cartesien()
-print(line[:10])
-measures = [measure for measure in line[1:] if measure]
-dico = {angle: distance for measure in measures for angle, distance in measure.split(":")}
+
+measures = [measure for measure in line[1:] if ":" in measure]
+print(measures)
+dico = {float(angle): float(distance) for measure in measures for angle, distance in measure.split(":")}
 
 # Affichage des points
 if affichage:
