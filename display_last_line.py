@@ -3,9 +3,7 @@
 import sys
 from csv import reader
 from os.path import isdir
-import matplotlib.pyplot as plt
-from src.affichage import afficher_en_polaire, affichage, \
-    init_affichage_cartesien, init_affichage_polaire, affichage_brut_cartesien
+from src.affichage import affichage, affichage_brut_cartesien, init_affichage_brut_cartesien
 
 if not isdir("./Logs/"):
     print("No measure to read")
@@ -27,7 +25,7 @@ fig = None
 # Initialisation de l'affichage
 if affichage:
     print("Affichage init")
-    ax, fig = init_affichage_cartesien()
+    ax, fig = init_affichage_brut_cartesien()
 
 measures = [measure for measure in line[1:] if ":" in measure]
 dico = {float(m.split(":")[0]): float(m.split(":")[0]) for measure in measures for m in measure.split(":")}
