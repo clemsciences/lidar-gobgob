@@ -35,6 +35,21 @@ def init_affichage_cartesien():
     return ax, fig
 
 
+def init_affichage_brut_cartesien():
+    """
+    Initialisation de l'affichage.
+    """
+
+    fig = pl.figure()
+    ax = fig.add_subplot(111)
+    ax.set_xlim(-distance_max_x_cartesien/2, distance_max_x_cartesien/2)
+    ax.set_ylim(-distance_max_y_cartesien/2, distance_max_y_cartesien/2)
+    ax.axhline(0, 0)
+    ax.axvline(0, 0)
+
+    return ax, fig
+
+
 def init_affichage_polaire():
     """
     Initialisation de l'affichage.
@@ -68,7 +83,8 @@ def affichage_brut_cartesien(ax, dico, fig):
     pl.plot(x, y, 'ro', markersize=0.6)
 
     # Affichage
-    fig.canvas.draw()
+    # fig.canvas.draw()
+    pl.show()
 
 
 def affichage_cartesien(limits, ax, list_obstacles, dico, fig):

@@ -3,6 +3,7 @@
 import sys
 from csv import reader
 from os.path import isdir
+import matplotlib.pyplot as plt
 from src.affichage import afficher_en_polaire, affichage, \
     init_affichage_cartesien, init_affichage_polaire, affichage_brut_cartesien
 
@@ -26,14 +27,10 @@ fig = None
 # Initialisation de l'affichage
 if affichage:
     print("Affichage init")
-    if afficher_en_polaire:
-        ax, fig = init_affichage_polaire()
-    else:
-        ax, fig = init_affichage_cartesien()
+    ax, fig = init_affichage_cartesien()
 
 measures = [measure for measure in line[1:] if ":" in measure]
-print(measures)
-dico = {float(angle): float(distance) for measure in measures for angle, distance in measure.split(":")}
+dico = {float(m.split(":")[0]): float(m.split(":")[0]) for measure in measures for m in measure.split(":")}
 
 # Affichage des points
 if affichage:
