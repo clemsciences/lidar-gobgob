@@ -28,10 +28,7 @@ envoi = None
 
 
 try:
-    # Liste des positions des anciens obstacles
-    list_obstacles_precedente = []
-
-    # Demarre le Thread recevant les donnees
+    # Demarre le Thread recevant les données
     thread_data = ThreadData()
     thread_data.start()
 
